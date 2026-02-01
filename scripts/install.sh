@@ -77,43 +77,9 @@ else
     print_status "ZSH already installed"
 fi
 
-# ============================================================================
-# 2. Install Nerd Fonts
-# ============================================================================
-echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-echo -e "${BLUE}Step 2: Installing Nerd Fonts${NC}"
-echo -e "${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-
-print_info "Downloading MesloLGS NF font (required for Powerlevel10k)..."
-
-if [[ "$OS" == "macos" ]]; then
-    brew tap homebrew/cask-fonts
-    brew install --cask font-meslo-lg-nerd-font
-    print_status "Font installed via Homebrew"
-else
-    FONT_DIR="$HOME/.local/share/fonts"
-    mkdir -p "$FONT_DIR"
-    cd "$FONT_DIR"
-    
-    # Download MesloLGS NF fonts
-    fonts=(
-        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf"
-        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf"
-        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf"
-        "https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf"
-    )
-    
-    for font in "${fonts[@]}"; do
-        curl -fLo "${font##*/}" "$font"
-    done
-    
-    fc-cache -fv
-    print_status "Fonts installed to $FONT_DIR"
-    print_info "Please set your terminal font to 'MesloLGS NF' in terminal settings"
-fi
 
 # ============================================================================
-# 3. Install Modern CLI Tools
+# 2. Install Modern CLI Tools
 # ============================================================================
 echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}Step 3: Installing Modern CLI Tools${NC}"
@@ -253,7 +219,7 @@ fi
 install_package "tree" "tree"
 
 # ============================================================================
-# 4. Install FZF
+# 3. Install FZF
 # ============================================================================
 echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}Step 4: Installing FZF (Fuzzy Finder)${NC}"
@@ -270,7 +236,7 @@ else
 fi
 
 # ============================================================================
-# 5. Install Zinit (Plugin Manager)
+# 4. Install Zinit (Plugin Manager)
 # ============================================================================
 echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}Step 5: Installing Zinit (ZSH Plugin Manager)${NC}"
@@ -316,7 +282,7 @@ if [ -f .p10k.zsh ]; then
 fi
 
 # ============================================================================
-# 7. Set ZSH as Default Shell
+# 5. Set ZSH as Default Shell
 # ============================================================================
 echo -e "\n${BLUE}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}Step 7: Setting ZSH as Default Shell${NC}"
