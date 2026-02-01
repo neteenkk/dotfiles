@@ -21,6 +21,11 @@ dotfiles/
 Each folder represents a **stow package**. Files inside a package mirror their final location in `$HOME`.
 
 ---
+## Setting Gitthub
+- Follow steps to setup ssh https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+- Add ssh key in your github account
+- Happy Comitting!!
+
 
 ## 🧩 Prerequisites
 
